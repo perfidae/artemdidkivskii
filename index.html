@@ -9,11 +9,6 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Loading Screen -->
-    <div class="loading" id="loading">
-        <div class="spinner"></div>
-    </div>
-
     <!-- Header -->
     <header>
         <div class="header-content">
@@ -45,8 +40,8 @@
             <div class="apartments-grid">
                 <div class="apartment-card">
                     <img src="https://learn.logikaschool.com/uploads/student/2983135/693541a8dd641.png" alt="Однокомнатна шалюпка">
-                    <div class="apartment-title">однокомнатна квартира</div>
-                    <p class="apartment-desc">Однокомнатна  квартира з усіма потребностями і новими штуками а сусіди завжди будуть раді відпочити разом.</p>
+                    <div class="apartment-title">однокомнатна квартірка</div>
+                    <p class="apartment-desc">Однокомнатна  квартіра з усіма потребностями і новими штуками а сусіди завжди будуть раді побухать разом.</p>
                     <div class="price">11000грн</div>
                     <div class="features">
                         <span class="feature"><i class="fas fa-bed"></i> 1 кімната</span>
@@ -140,14 +135,6 @@
     </button>
 
     <script>
-        // Loading screen
-        window.addEventListener('load', () => {
-            const loading = document.getElementById('loading');
-            setTimeout(() => {
-                loading.classList.add('hidden');
-            }, 1500);
-        });
-
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -177,37 +164,6 @@
                 top: 0,
                 behavior: 'smooth'
             });
-        });
-
-        // Parallax effect for header image
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const headerImg = document.querySelector('.makan');
-            if (headerImg) {
-                headerImg.style.transform = `translateY(${scrolled * 0.5}px)`;
-            }
-        });
-
-        // Animate apartment cards on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.apartment-card').forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(50px)';
-            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(card);
         });
     </script>
 </body>
